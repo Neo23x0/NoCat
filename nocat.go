@@ -45,6 +45,15 @@ func main() {
 // startDummyChild never executes the value of -e
 func startDummyChild(verbose bool, execValue string) {
 	cmd := exec.Command(execValue) // placeholder, will be replaced
+
+	// If you want the child to stay alive, attach stdio to the parent:
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	// Cross-platform: resolves to “new console” on Windows, nil elsewhere
+	cmd.SysProcAttr = newConsoleAttr
+
 	if err := cmd.Start(); err != nil {
 		if verbose {
 			log.Printf("NoCat: failed to start %s: %v", execValue, err)
