@@ -104,6 +104,22 @@ reg add HKLM\Software\Microsoft\Windows\CurrentVersion\Run ^
   /f
 ```
 
+## Relevant Sigma Rules
+
+NoCat is designed to mimic common Netcat command-line patterns without performing harmful actions.  
+When used in detection pipelines, it can help validate rules that look for suspicious Netcat-style listeners or reverse-shell behavior.
+
+A widely used example is this Sigma rule:
+
+**Potential Netcat Reverse Shell Execution**  
+ID: `7f734ed0-4f47-46c0-837f-6ee62505abd9`  
+Source:  
+https://github.com/SigmaHQ/sigma/blob/master/rules/linux/process_creation/proc_creation_lnx_netcat_reverse_shell.yml
+
+
+NoCat can be used to generate these command-line and process-creation artefacts safely, enabling testing without deploying real backdoor-capable Netcat binaries.
+
+
 ## License
 
 MIT (recommended).
