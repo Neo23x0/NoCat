@@ -65,24 +65,18 @@ GOOS=darwin GOARCH=arm64 go build -o nocat_darwin_arm64 nocat.go
 
 The repository includes a convenience script that builds all supported platforms in one run.
 
-```bash
-#!/bin/sh
-set -e
-
-GOOS=windows GOARCH=amd64 go build -o nocat_windows_amd64.exe nocat.go
-GOOS=windows GOARCH=arm64 go build -o nocat_windows_arm64.exe nocat.go
-
-GOOS=darwin GOARCH=amd64 go build -o nocat_darwin_amd64 nocat.go
-GOOS=darwin GOARCH=arm64 go build -o nocat_darwin_arm64 nocat.go
-
-echo "Build completed."
-```
-
 Make executable:
 
 ```bash
 chmod +x build.sh
 ```
+
+Run:
+
+```bash
+./build.sh
+```
+
 
 ## Usage Examples
 
