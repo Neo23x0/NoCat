@@ -33,3 +33,5 @@ go.work.sum
 nocat
 nocat_darwin_amd64
 nocat_darwin_arm64
+nocat_linux_amd64
+.gitignore
